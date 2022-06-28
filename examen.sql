@@ -59,13 +59,6 @@ CREATE TABLE region(
     nombre              VARCHAR2(254) NOT NULL
 );
 
-CREATE TABLE direccion(
-    id_direccion        VARCHAR2(254) NOT NULL,
-    nombre              VARCHAR2(254) NOT NULL,
-    comuna_id_comuna    NUMBER NOT NULL,
-    empresa_id_empresa  NUMBER NOT NULL
-);
-
 CREATE TABLE pagos(
     id_pagos                            NUMBER NOT NULL,
     pago_inicial                        NUMBER NOT NULL,
@@ -86,7 +79,6 @@ CREATE TABLE historial_pagos(
     lugar                   VARCHAR2(254) NOT NULL
 );
 
---efectivo tipo?
 CREATE TABLE tipo_pago(
     id_pago                         NUMBER NOT NULL,
     efectivo                        VARCHAR2(254) NOT NULL,
@@ -100,7 +92,7 @@ CREATE TABLE deudas(
     meses_deuda                 NUMBER NOT NULL,
     afiliados_rut               NUMBER NOT NULL
 );
--- id cheque o numero de serie?
+
 CREATE TABLE cheque(
     id_cheque       NUMBER NOT NULL,
     numero_cheque   NUMBER NOT NULL,
