@@ -1,4 +1,4 @@
-CREATE TABLE afi(
+CREATE TABLE afiliados(
     rut_afiliado                        NUMBER(8) NOT NULL,
     dv                                  VARCHAR2(1) NOT NULL, 
     primer_nombre                       VARCHAR2(254) NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE tipo_discapacidad(
 
 CREATE TABLE telefono(
     id_telefono     NUMBER NOT NULL,
-    numero_telefono VARCHAR(254) NOT NULL,
+    numero_telefono VARCHAR2(254) NOT NULL,
     afiliados_rut   NUMBER NOT NULL
 );
 
@@ -198,3 +198,20 @@ CREATE TABLE tipo_beneficio(
     afiliados_rut                   NUMBER NOT NULL,
     beneficio_id_beneficio          NUMBER NOT NULL
 );
+
+-- CREACION DE PRIMARY KEY 
+ALTER TABLE afiliados ADD CONSTRAINT afiliados_PK PRIMARY KEY (rut_afiliado);
+ALTER TABLE nacionalidad ADD CONSTRAINT nacionalidad_PK PRIMARY KEY (id_nacionalidad);
+ALTER TABLE tipo_discapacidad ADD CONSTRAINT tipo_discapacidad_PK PRIMARY KEY (id_tipo_discapacidad);
+ALTER TABLE deudas ADD CONSTRAINT deudas_PK PRIMARY KEY (id_deudas, afiliados_rut);
+ALTER TABLE pagos ADD CONSTRAINT pagos_PK PRIMARY KEY (id_pagos);
+ALTER TABLE historial_pago ADD CONSTRAINT historial_pagos_PK PRIMARY KEY (id_historial_pagos);
+ALTER TABLE tipo_pago ADD CONSTRAINT tipo_pago_PK PRIMARY KEY (id_pago);
+ALTER TABLE telefono ADD CONSTRAINT telefono_PK PRIMARY KEY (id_telefono);
+ALTER TABLE tipo_telefono ADD CONSTRAINT tipo_telefono_PK PRIMARY KEY (id_numero);
+ALTER TABLE beneficio ADD CONSTRAINT beneficio_PK PRIMARY KEY (id_beneficio);
+ALTER TABLE tipo_beneficio ADD CONSTRAINT tipo_beneficio_PK PRIMARY KEY (id_tipo_beneficio, afiliados_rut);
+ALTER TABLE cantidad_usos_descuentos ADD CONSTRAINT cantidad_descuentos_totales_PK PRIMARY KEY (id_descuento_usado);
+ALTER TABLE cheque ADD CONSTRAINT cheque_PK PRIMARY KEY (id_cheque);
+ALTER TABLE banco ADD CONSTRAINT banco_PK PRIMARY KEY (id_banco);
+ALTER TABLE tipo_transporte ADD CONSTRAINT tipo_transporte_PK PRIMARY KEY (id_tipo_transporte);
